@@ -93,7 +93,7 @@ export const login = async (req, res, next) => {
 	if (!user) return next(new AppError("Invalid email or password.", 400));
 
 	// Compare password
-	const isMatch = await bcrypt.compare(password, user.password);
+	const isMatch = bcrypt.compare(password, user.password);
 	if (!isMatch) return next(new AppError("Incorrect password.", 400));
 
 	// Generate JWT
