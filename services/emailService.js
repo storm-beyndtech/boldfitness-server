@@ -105,9 +105,9 @@ export async function contactAdmin(userEmail, fullName, message) {
 
 		let mailOptions = {
 			from: `BoldFitnessNG ${process.env.SMTP_USER}`,
-			to: process.env.ADMIN_EMAIL,
+			to: process.env.SMTP_USER,
 			subject: "Contact Mail",
-			html: emailTemplate("Contact Mail", bodyContent),
+			html: emailTemplate(bodyContent),
 		};
 
 		const result = await sendMailWithRetry(mailOptions);
@@ -132,7 +132,7 @@ export async function passwordReset(userEmail) {
 			from: `BoldFitnessNG ${process.env.SMTP_USER}`,
 			to: userEmail,
 			subject: "Password Reset",
-			html: emailTemplate("Password Reset", bodyContent),
+			html: emailTemplate(bodyContent),
 		};
 
 		const result = await sendMailWithRetry(mailOptions);

@@ -74,7 +74,7 @@ export const sendContactMessage = async (req, res, next) => {
 
 	try {
 		// Use the contactMail function to send an email
-		await contactAdmin(fullName, email, message);
+		await contactAdmin(email, fullName, message);
 
 		res.status(200).send({
 			message: "Your message has been sent successfully. We'll get back to you shortly.",
