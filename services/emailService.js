@@ -49,7 +49,7 @@ export async function welcomeMail(userEmail, plan, userID, expirationDate) {
       from: `BoldFitnessNG ${process.env.SMTP_USER}`,
       to: userEmail,
       subject: "Welcome to BoldFitnessNG!",
-      html: emailTemplate("Welcome to BoldFitnessNG", bodyContent),
+      html: emailTemplate(bodyContent),
     };
 
     const result = await sendMailWithRetry(mailOptions);
@@ -81,7 +81,7 @@ export async function alertAdmin(userEmail, firstName, lastName) {
 			from: `BoldFitnessNG ${process.env.SMTP_USER}`,
 			to: userEmail,
 			subject: "New User Registration Alert",
-			html: emailTemplate("New User Registration", bodyContent),
+			html: emailTemplate(bodyContent),
 		};
 
 		const result = await sendMailWithRetry(mailOptions);
