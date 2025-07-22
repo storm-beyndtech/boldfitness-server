@@ -51,7 +51,7 @@ const userSchema = new mongoose.Schema(
     plan: { 
       type: String, 
       required: true, 
-      enum: ['monthly', 'quarterly', 'annually'] 
+      enum: ['Monthly', 'Quarterly', 'Annually'] 
     },
     status: { 
       type: String, 
@@ -105,7 +105,7 @@ const validateUser = (user) => {
       state: Joi.string().required(),
       zipCode: Joi.string().required(),
     }).required(),
-    plan: Joi.string().valid('monthly', 'quarterly', 'annually').required(),
+    plan: Joi.string().valid('Monthly', 'Quarterly', 'Annually').required(),
     status: Joi.string().valid('pending', 'active', 'expired').default('active'),
     subscriptionExpiry: Joi.date().allow(null),
     accountType: Joi.string().valid('admin', 'member').required(),
